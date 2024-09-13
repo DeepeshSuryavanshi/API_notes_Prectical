@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
-
+require('dotenv').config()
 const DBconnect = async () =>{
     mongoose.Promise = global.Promise;
-    mongoose.connect('mongodb://localhost:27017/pr_notes?retryWrites=true&w=majority')
+    mongoose.connect(process.env.MONGODB_CONNECTIO_STRING)
     mongoose.connection
     .once('open',()=>console.log("MongoDB running"))
     .on('error',(err)=>console.log("MongoDB Error throw",err))

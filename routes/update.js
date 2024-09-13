@@ -15,8 +15,7 @@ router.put('/:id', async (req, res) => {
     
       const updatedNote = await notes.findByIdAndUpdate(
         id,
-        { title, content },  // Fields to update
-        { new: true, runValidators: true }  // Return the updated note, apply schema validation
+        { title, content }
       );
   
       
