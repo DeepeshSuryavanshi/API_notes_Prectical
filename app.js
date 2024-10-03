@@ -9,8 +9,6 @@ var DBconnect = require('./DB/DBconnect')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var note = require('./routes/notes')
-var updatenotes = require("./routes/update")
-var Deletenotes = require('./routes/DeletebyId')
 
 var app = express();
 DBconnect()
@@ -27,8 +25,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/note',note)
-app.use('/update',updatenotes)
-app.use('/Delete',Deletenotes)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
